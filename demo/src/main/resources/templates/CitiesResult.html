@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./table-style.css">
+  <title>City Result</title>
+  <style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: lightgrey;
+  }
+  
+  tr:nth-child(even) {
+    background-color: lightgrey;
+  }
+  
+  h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  </style>
+</head>
+<body>
+
+  <table>
+    <tr>
+        <th>City Name</th>
+        <th>Country</th>
+        <th>District</th>
+        <th>Population</th>
+    </tr>
+    <tr th:each="city : ${cities}"> <!-- Change "result" to "cities" -->
+        <td th:text="${city.Name}"></td> <!-- Change "name" to "Name" -->
+        <td th:text="${city.CountryName}"></td> <!-- Change "country.name" to "CountryName" -->
+        <td th:text="${city.District}"></td> <!-- Change "district" to "District" -->
+        <td th:text="${city.Population}"></td> <!-- Change "population" to "Population" -->
+    </tr>
+</table>
+</body>
+</html>
+

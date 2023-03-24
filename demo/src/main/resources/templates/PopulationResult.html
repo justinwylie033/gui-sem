@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./table-style.css">
+  <title>Population Report</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: lightgrey;
+    }
+    
+    tr:nth-child(even) {
+      background-color: lightgrey;
+    }
+    
+    h1 {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Population Report</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Total Population</th>
+      <th>Population in Cities</th>
+      <th>% in Cities</th>
+      <th>Population Not in Cities</th>
+      <th>% Not in Cities</th>
+    </tr>
+    <tr th:each="region : ${regions}">
+        <td th:text="${region.Country}"></td>
+        <td th:text="${region.TotalPopulation}"></td>
+        <td th:text="${region.CityPopulation}"></td>
+        <td th:text="${region.CityPopulationPercentage}"></td>
+        <td th:text="${region.RuralPopulation}"></td>
+        <td th:text="${region.RuralPopulationPercentage}"></td>
+      </tr>
+    </tr>
+  </table>
+</body>
+</html>

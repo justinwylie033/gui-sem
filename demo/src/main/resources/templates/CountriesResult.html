@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./table-style.css">
+  <title>Country Result</title>
+  <style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: lightgrey;
+  }
+  
+  tr:nth-child(even) {
+    background-color: lightgrey;
+  }
+  
+  h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  </style>
+</head>
+<body>
+
+  <table>
+    <tr>
+        <th>Country Code</th>
+        <th>Country Name</th>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>Population</th>
+        <th>Capital</th>
+    </tr>
+    <tr th:each="country : ${countries}">
+      <td th:text="${country.Code}"></td>
+      <td th:text="${country.Name}"></td>
+      <td th:text="${country.Continent}"></td>
+      <td th:text="${country.Region}"></td>
+      <td th:text="${country.Population}"></td>
+      <td th:text="${country.Capital}"></td>
+  </tr>
+</table>
+</body>
+</html>
+

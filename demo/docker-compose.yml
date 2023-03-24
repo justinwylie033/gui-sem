@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    restart: always
+    volumes:
+      - ./db/world.sql:/docker-entrypoint-initdb.d/world.sql
+    networks:
+      - my_network
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: world
+  app:
+    build: .
+    container_name: my-app-container
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/world?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+networks:
+  my_network:

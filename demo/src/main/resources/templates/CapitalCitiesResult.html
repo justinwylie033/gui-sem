@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./table-style.css">
+  <title>Capital Cities Result</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: lightgrey;
+    }
+    
+    tr:nth-child(even) {
+      background-color: lightgrey;
+    }
+    
+    h1 {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <table>
+    <tr>
+      <th>City</th>
+      <th>Country</th>
+      <th>Population</th>
+    </tr>
+    <tr th:each="city : ${cities}">
+      <td th:text="${city.City}"></td>
+      <td th:text="${city.Country}"></td>
+      <td th:text="${city.Population}"></td>
+    </tr>
+  </table>
+</body>
+</html>
